@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Travel Anywhere | Travel</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="keywords" content="Travel, Greece, France, Italy, Spain"/>
+        <meta name="description" content="Travel anywhere is an agency with long tradition. Over the years we have built relationships of mutual respect, confidence..."/>
+        <link rel="icon" href="assets/img/favicon.ico"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.min.css"/>
+    </head>
+    <body>
+        <header id="header" class="whiteHeader">
+            <div class="container">
+                <div id="logo">
+                    <a href="index.html">
+                        <img src="assets/img/logoBlack.png" alt="Logo"/>
+                    </a>
+                </div>
+                <div id="nav">
+                    <ul>
+                    </ul>
+                </div>
+                <button id="btnSideNav">
+                    <i class="fas fa-bars font-large"></i>
+                </button>
+            </div>
+        </header>
+        <!-- MAIN -->
+        <main id="mainTravel">
+            <div class="heading">
+                <h2 class="uppercase font-xl">Travel</h2>
+                <div class="headingUnderline">
+                    <span class="blackUnderline"></span>
+                    <span class="blueUnderline"></span>
+                    <span class="blackUnderline"></span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="heading">
+                    <h3 class="uppercase font-large">Greece</h3>
+                </div>
+                <div id="locationGreece" class="locationGroup">
+                </div>
+                <div class="heading">
+                    <h3 class="uppercase font-large">France</h3>
+                </div>
+                <div id="locationFrance" class="locationGroup">
+                </div>
+                <div class="heading">
+                    <h3 class="uppercase font-large">Italy</h3>
+                </div>
+                <div id="locationItaly" class="locationGroup">
+                </div>
+                <div class="heading">
+                    <h3 class="uppercase font-large">Spain</h3>
+                </div>
+                <div id="locationSpain" class="locationGroup">
+                </div>
+                <div class="heading">
+                    <h3 class="uppercase font-large">Croatia</h3>
+                </div>
+                <div id="locationCroatia" class="locationGroup">
+                </div>
+                <div class="heading">
+                    <h3 class="uppercase font-large">Turkey</h3>
+                </div>
+                <div id="locationTurkey" class="locationGroup">
+                </div>
+                <div class="heading">
+                    <h2 class="uppercase font-xl">Booking form</h2>
+                    <div class="headingUnderline">
+                        <span class="blackUnderline"></span>
+                        <span class="blueUnderline"></span>
+                        <span class="blackUnderline"></span>
+                    </div>
+                    <div id="bookingForm">
+                        <form method="post">
+                            <div class="form-group">
+                              <label for="tbEmail" class="font-small">Email address</label>
+                              <input type="email" class="font-small" id="tbEmail" placeholder="Your email" autocomplete="off"/>
+                              <span class="errorMessage font-small">examplename@example.com</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="ddlNumber" class="font-small">Number of people:</label>
+                                <select name="ddlNumber" id="ddlNumber" class="font-small">
+                                </select>
+                                <span class="errorMessage font-small">You must choose an option.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="ddlYear" class="font-small">Date:</label>
+                                <div id="ddlDateDiv">
+                                    <select name="ddlYear" id="ddlYear" class="font-small ddlDate">
+                                    </select>
+                                    <select name="ddlMonth" id="ddlMonth" class="font-small ddlDate">
+                                        </select>
+                                    <select name="ddlDay" id="ddlDay" class="font-small ddlDate">
+                                    </select>
+                                </div>
+                                <span id="dateError" class="errorMessage font-small">You must choose a date.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="ddlDestination" class="font-small">Destination:</label>
+                                <select name="ddlDestination" id="ddlDestination" class="font-small">
+                                    <option value="0">Choose</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <span class="errorMessage font-small">You must choose a destination.</span>
+                            </div>
+                            <input type="button" id="btnSubmitForm" name="btnSubmitForm" value="Submit" class="font-small uppercase"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- FOOTER -->
+        <footer id="footer">
+            <span id="social">
+                <ul>
+                </ul>
+            </span>
+            <br/>
+            <span class="separator"></span>
+            <br/>
+            <span id="copyright" class="font-small">&copy; 2020 Bojan Maksimović</span>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/main.min.js"></script>
+        <script type="text/javascript" src="assets/js/successModal.min.js"></script>
+        <script type="text/javascript" src="assets/js/travel.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,895 @@
+$color-black: #363636;
+$color-white: #f7f7f7;
+$color-grey: rgb(185, 185, 185);
+$color-ltgrey: #dedede;
+$color-blue: #57aeb5;
+$color-red: #f00;
+
+$color-transparent: rgba(0, 0, 0 ,0);
+$color-black-t: rgba(0, 0, 0, 0.7);
+
+@font-face {
+    src: url("../fonts/VarelaRound-Regular.ttf");
+    font-family: "VarelaRound";
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "VarelaRound";
+    color: $color-black;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background-color: $color-white;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+//
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.font-xs {
+    font-size: 12px;
+  }
+  
+.font-small {
+    font-size: 16px;
+}
+  
+.font-medium {
+    font-size: 19px;
+}
+  
+.font-large {
+    font-size: 30px;
+}
+  
+.font-xl {
+    font-size: 40px;
+}
+
+// HEADER
+
+#header {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    transition: .2s;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.whiteHeader {
+    background-color: $color-white;
+    box-shadow: 5px 1px 15px $color-black-t;
+    .navLink {
+        a {
+            color: $color-black;
+            &:after {
+                background-color: $color-black;
+            }
+        }
+    }
+    #btnSideNav {
+        i {
+            color: $color-black;
+        }
+    }
+}
+
+#nav {
+    ul {
+        display: flex;
+        li {
+            margin-left: 5px;
+            margin-right: 5px;
+            height: auto;
+        }
+    }
+}
+
+.navLink {
+    a {
+        padding: 10px 5px;
+        color: $color-white;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            height: 2px;
+            width: 0px;
+            background-color: $color-white;
+            transition: .2s;
+        }
+        &:hover {
+            &:after {
+                left: 0px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+#logo {
+    width: 80px;
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+
+// SIDENAV
+
+#sideNav {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    .cover {
+        opacity: 0%;
+    }
+}
+
+#sideNavContent {
+    background-color: $color-white;
+    height: 100%;
+    width: 300px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 3;
+    ul {
+        li {
+            a {
+                display: block;
+                padding: 10px;
+                transition: .2s;
+                color: $color-black;
+                &:hover {
+                    background-color: $color-grey;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}
+
+// MAIN
+
+// HOME
+
+#homeSlider {
+    height: 110vh;
+    position: relative;
+    overflow: hidden;
+    &:after { // Triangles at the bottom
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-top: 10vh solid transparent;
+        border-left: 50vw solid $color-white;
+        border-right: 50vw solid $color-white;
+        z-index: 4;
+    }
+}
+
+.slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: $color-black-t;
+}
+
+#sliderText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    h1, p {
+        color: $color-white;
+        margin-bottom: 20px;
+        span {
+            color: $color-white;
+        }
+    }
+    p {
+        width: 50%;
+    }
+    a {
+        padding: 10px 20px;
+    }
+}
+
+#allLocations {
+    margin-bottom: 15px;
+    background-color: $color-white;
+    border-radius: 20px;
+    color: $color-black;
+}
+
+#mostVisited {
+    color: $color-grey;
+    transition: .2s;
+    &:hover {
+        color: $color-white;
+        .arrow {
+            border-color: $color-white;
+            top: 6px;
+        }
+    }
+}
+
+.arrow {
+    width: 12px;
+    height: 12px;
+    border-right: 1px solid $color-grey;
+    border-bottom: 1px solid $color-grey;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(45deg);
+    transition: top .1s, border-color .2s;
+    position: relative;
+    top: 3px;
+}
+
+#btnSideNav {
+    display: none;
+    background-color: $color-transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    i {
+        color: $color-white;
+    }
+}
+
+// MOST VISITED
+
+.heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.headingUnderline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    .blackUnderline {
+        width: 25px;
+        border-bottom: 1px solid $color-black;
+    }
+    .blueUnderline {
+        width: 40px;
+        border-bottom: 3px solid $color-blue;
+    }
+}
+
+#mostVisitedItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mostVisitedItem {
+    width: 30%;
+    position: relative;
+    margin-bottom: 40px;
+    box-shadow: 0 0 8px 1px $color-black-t;
+    overflow: hidden;
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+
+.coverText {
+    background-color: $color-black-t;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h3 {
+        color: $color-white;
+        margin-bottom: 5px;
+    }
+    a {
+        color: $color-grey;
+    }
+}
+
+// TRAVEL
+
+#mainTravel {
+    padding-top: 120px;
+    padding-bottom: 50px;
+}
+
+.locationGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.locationContainer {
+    height: 0%;
+    width: 27%;
+    background-color: $color-ltgrey;
+    box-shadow: 0 0 10px 3px $color-grey;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+    text-align: center;
+    padding-bottom: 10px;
+    .heading {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+}
+
+.locationImage {
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+
+.locationText {
+    padding: 0px 10px 10px 10px;
+    position: relative;
+}
+
+.btnBook {
+    margin-top: 10px;
+    background-color: $color-blue;
+    color: $color-white;
+    border-radius: 5px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.price {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.btnReadMore {
+    background-color: $color-transparent;
+    border: none;
+    color: $color-blue;
+    outline: none;
+    cursor: pointer;
+}
+
+#bookingForm {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ddlDateDiv {
+    display: flex;
+}
+
+.ddlDate {
+    width: 100px;
+    margin-right: 5px;
+}
+
+// CONTACT
+
+#mainContact {
+    padding-top: 120px;
+    padding-bottom: 150px;
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+#contactLeft {
+    width: 45%;
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+#contactRight {
+    width: 45%;
+    .heading {
+        margin-bottom: 20px;
+    }
+}
+
+#contactForm {
+    width: 70%;
+    margin: 0 auto;
+    form {
+        text-align: center;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    text-align: left;
+    label {
+        margin-bottom: 3px;
+    }
+}
+
+#tbMessage {
+    resize: none;
+}
+
+input, textarea, select {
+    outline: none;
+}
+
+input[type=text], input[type=email], textarea, select {
+    border: 1px solid $color-black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#btnSubmitForm {
+    padding: 8px;
+    border: none;
+    background-color: $color-blue;
+    color: $color-white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.errorMessage {
+    color: $color-red;
+    display: none;
+    ul {
+        li {
+            color: $color-red;
+        }
+    }
+}
+
+.borderRed {
+    border-color: $color-red !important;
+}
+
+.borderBlue {
+    border-color: $color-blue !important;
+}
+
+#successModal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: none;
+    .cover {
+        opacity: 0%;
+    }
+}
+
+#successContainer {
+    padding: 40px;
+    background-color: $color-white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+    z-index: 3;
+}
+
+// FOOTER
+
+#footer {
+    background-color: $color-blue;
+    padding: 20px;
+}
+
+#social {
+    text-align: center;
+    ul {
+        li {
+            display: inline-block;
+            padding: 5px;
+            a {
+                i {
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}
+
+.separator {
+    display: block;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid $color-white;
+}
+
+#copyright {
+    display: block;
+    text-align: center;
+    color: $color-white;
+}
+
+// AUTHOR
+
+#authorModal {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    display: none;
+    .cover {
+        opacity: 0%;
+    }
+}
+
+#authorContainer {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: $color-white;
+    padding: 30px;
+    width: 70%;
+    border-radius: 10px;
+    text-align: right;
+    z-index: 3;
+    h2 {
+        text-align: center;
+    }
+    .headingUnderline {
+        margin-bottom: 20px;
+    }
+}
+
+#authorContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#authorPhoto {
+    width: 30%;
+    text-align: center;
+    img {
+        width: 100%;
+        display: block;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    h3 {
+        margin-bottom: 5px;
+    }
+}
+
+#authorText {
+    width: 60%;
+    text-align: left;
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+#portfolioLink {
+    background-color: $color-blue;
+    color: $color-white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btnClose {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: $color-transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+//================================================================================
+// MEDIA QUERIES
+
+@media screen and (max-width: 1200px) {
+    // MAIN
+
+    // HOME
+
+    #homeSlider {
+        height: 106vh;
+        &:after { // Triangles at the bottom
+            border-top: 6vh solid transparent;
+        }
+    }
+
+    .mostVisitedItem {
+        width: 45%;
+    }
+
+    // TRAVEL
+
+    .locationContainer {
+        width: 40%;
+    }
+
+    // CONTACT
+
+    #mainContact {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    #contactLeft {
+        margin-bottom: 50px;
+        width: 80%;
+    }
+
+    #contactRight {
+        width: 80%;
+    }
+
+    // AUTHOR
+
+    #authorContainer {
+        text-align: center;
+    }
+
+    #authorContent {
+        flex-direction: column;
+    }
+
+    #authorPhoto {
+        width: 300px;
+        margin-bottom: 20px;
+    }
+
+    #authorText {
+        width: 90%;
+        text-align: center;
+        a {
+            padding: 8px;
+        }
+    }
+
+    #secondParagraph {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    // TRAVEL
+
+    .locationContainer {
+        width: 60%;
+    }
+
+    #bookingForm {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .font-xs {
+        font-size: 10px;
+    }
+      
+      .font-small {
+        font-size: 14px;
+    }
+      
+      .font-medium {
+        font-size: 17px;
+    }
+      
+      .font-large {
+        font-size: 25px;
+    }
+      
+      .font-xl {
+        font-size: 30px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    // HEADER
+
+    #logo {
+        width: 65px;
+    }
+
+    #nav {
+        display: none;
+    }
+
+    #btnSideNav {
+        display: block;
+    }
+
+    // MAIN
+
+    // HOME
+
+    .mostVisitedItem {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // TRAVEL
+    
+    #mainTravel {
+        padding-top: 100px;
+    }
+
+    // CONTACT
+
+    #mainContact {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    #contactLeft {
+        width: 100%;
+    }
+
+    #contactRight {
+        width: 100%;
+    }
+
+    // AUTHOR
+
+    #authorPhoto {
+        width: 70%;
+    }
+
+    #authorText {
+        width: 90%;
+        text-align: center;
+        a {
+            padding: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    // MAIN
+
+    // HOME
+
+    #homeSlider {
+        height: 104vh;
+        &:after { // Triangles at the bottom
+            border-top: 4vh solid transparent;
+        }
+    }
+
+    // TRAVEL
+
+    .locationContainer {
+        width: 100%;
+    }
+
+    #bookingForm {
+        width: 90%;
+    }
+
+    #ddlDateDiv {
+        flex-direction: column;
+    }
+
+    .ddlDate {
+        margin-bottom: 5px;
+    }
+
+    // CONTACT
+
+    #contactForm {
+        width: 100%;
+    }
+
+    #successContainer {
+        width: 90%;
+    }
+
+    // AUTHOR
+
+    #authorContainer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    // SIDENAV
+
+    #sideNavContent {
+        width: 80%;
+    }
+}
