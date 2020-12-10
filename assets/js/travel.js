@@ -195,7 +195,7 @@ for(i in ddlMonthOptions) {
     ddlMonth.innerHTML += `<option value="${ddlMonthOptions[i]}">${ddlMonthOptions[i]}</option>`;
 }
 
-function checkMonth(dateCheck) {
+function checkMonth() {
     if(ddlMonth.value != 0) {
         ddlMonth.classList.add("borderBlue");
         ddlMonth.classList.remove("borderRed");
