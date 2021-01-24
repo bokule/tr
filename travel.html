@@ -8,7 +8,7 @@
         <meta name="description" content="Travel anywhere is an agency with long tradition. Over the years we have built relationships of mutual respect, confidence..."/>
         <link rel="icon" href="assets/img/favicon.ico"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous"/>
-        <link rel="stylesheet" type="text/css" href="assets/css/style.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     </head>
     <body>
         <header id="header" class="whiteHeader">
@@ -68,53 +68,53 @@
                 </div>
                 <div id="locationTurkey" class="locationGroup">
                 </div>
-                <div class="heading">
-                    <h2 class="uppercase font-xl">Booking form</h2>
-                    <div class="headingUnderline">
-                        <span class="blackUnderline"></span>
-                        <span class="blueUnderline"></span>
-                        <span class="blackUnderline"></span>
+                <div id="bookingForm">
+                    <div class="heading">
+                        <h3 class="uppercase font-large">Booking form</h3>
+                        <div class="headingUnderline">
+                            <span class="blackUnderline"></span>
+                            <span class="blueUnderline"></span>
+                            <span class="blackUnderline"></span>
+                        </div>
                     </div>
-                    <div id="bookingForm">
-                        <form method="post">
-                            <div class="form-group">
-                              <label for="tbEmail" class="font-small">Email address</label>
-                              <input type="email" class="font-small" id="tbEmail" placeholder="Your email" autocomplete="off"/>
-                              <span class="errorMessage font-small">examplename@example.com</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="ddlNumber" class="font-small">Number of people:</label>
-                                <select name="ddlNumber" id="ddlNumber" class="font-small">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="tbEmail" class="font-small">Email address</label>
+                            <input type="email" class="font-small" id="tbEmail" placeholder="Your email" autocomplete="off"/>
+                            <span class="errorMessage font-small">examplename@example.com</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="ddlNumber" class="font-small">Number of people:</label>
+                            <select name="ddlNumber" id="ddlNumber" class="font-small">
+                            </select>
+                            <span class="errorMessage font-small">You must choose an option.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="ddlYear" class="font-small">Date:</label>
+                            <div id="ddlDateDiv">
+                                <select name="ddlYear" id="ddlYear" class="font-small ddlDate">
                                 </select>
-                                <span class="errorMessage font-small">You must choose an option.</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="ddlYear" class="font-small">Date:</label>
-                                <div id="ddlDateDiv">
-                                    <select name="ddlYear" id="ddlYear" class="font-small ddlDate">
-                                    </select>
-                                    <select name="ddlMonth" id="ddlMonth" class="font-small ddlDate">
-                                        </select>
-                                    <select name="ddlDay" id="ddlDay" class="font-small ddlDate">
-                                    </select>
-                                </div>
-                                <span id="dateError" class="errorMessage font-small">You must choose a date.</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="ddlDestination" class="font-small">Destination:</label>
-                                <select name="ddlDestination" id="ddlDestination" class="font-small">
-                                    <option value="0">Choose</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
+                                <select name="ddlMonth" id="ddlMonth" class="font-small ddlDate">
                                 </select>
-                                <span class="errorMessage font-small">You must choose a destination.</span>
+                                <select name="ddlDay" id="ddlDay" class="font-small ddlDate">
+                                </select>
                             </div>
-                            <input type="button" id="btnSubmitForm" name="btnSubmitForm" value="Submit" class="font-small uppercase"/>
-                        </form>
-                    </div>
+                            <span id="dateError" class="errorMessage font-small">You must choose a date.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="ddlDestination" class="font-small">Destination:</label>
+                            <select name="ddlDestination" id="ddlDestination" class="font-small">
+                                <option value="0">Choose</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <span class="errorMessage font-small">You must choose a destination.</span>
+                        </div>
+                        <input type="button" id="btnSubmitForm" name="btnSubmitForm" value="Submit" class="font-small uppercase"/>
+                    </form>
                 </div>
             </div>
         </main>
@@ -129,9 +129,36 @@
             <br/>
             <span id="copyright" class="font-small">&copy; 2020 Bojan Maksimović</span>
         </footer>
+        <!-- AUTHOR -->
+        <div id="authorModal">
+            <div id="authorCover" class="cover"></div>
+            <div id="authorContainer">
+                <h2 class="uppercase font-large">Author</h2>
+                <div class="headingUnderline">
+                    <span class="blackUnderline"></span>
+                    <span class="blueUnderline"></span>
+                    <span class="blackUnderline"></span>
+                </div>
+                <div id="authorContent">
+                    <div id="authorPhoto">
+                        <img src="assets/img/bojan.jpg" alt="Author's photo">
+                        <h3 class="font-medium">Bojan Maksimović 92/19</h3>
+                        <span class="font-small">Web Developer</span>
+                    </div>
+                    <div id="authorText">
+                        <p class="font-small">My name is Bojan and I am an aspiring front-end web developer. My approach to website design is to create a website that strengthens your company’s brand while ensuring ease of use and simplicity for your audience.</p>
+                        <p id="secondParagraph" class="font-small">The way I look at it, a front-end developer's role is to combine design and business logic to achieve a user-facing product. To do this successfully, a wide skill set is necessary to produce a quality user experience that leads to meeting business goals, and I guarantee I've got exactly what's needed.</p>
+                    </div>
+                </div>
+                <a href="https://bokule.github.io/portfolio/" id="portfolioLink" class="uppercase font-small" target="_blank">Portfolio</a>
+                <button class="btnClose font-medium" onClick="closeAuthor();">X</button>
+            </div>
+        </div>
+        <!-- SCRPITS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/js/main.min.js"></script>
-        <script type="text/javascript" src="assets/js/successModal.min.js"></script>
-        <script type="text/javascript" src="assets/js/travel.min.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+        <script type="text/javascript" src="assets/js/formValidation.js"></script>
+        <script type="text/javascript" src="assets/js/successModal.js"></script>
+        <script type="text/javascript" src="assets/js/travel.js"></script>
     </body>
 </html>

@@ -33,7 +33,7 @@ function openSuccessModal(message) {
             successCover.style.opacity = `${i+100}%`; 
         }, timeoutValue+=1.5);
     }
-    closeModalTimeout = setTimeout(closeSuccessModal, 3000);
+    closeModalTimeout = setTimeout(closeSuccessModal, 5000);
 }
 
 successCover.addEventListener("click", closeSuccessModal);

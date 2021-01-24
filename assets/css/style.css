@@ -477,6 +477,11 @@ section {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  -webkit-box-shadow: 0 0 10px 3px #b9b9b9;
+          box-shadow: 0 0 10px 3px #b9b9b9;
+  padding: 40px 20px;
+  border-radius: 5px;
 }
 
 #ddlDateDiv {

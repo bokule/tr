@@ -12,9 +12,7 @@ for(i in nameErrorsArray) {
     nameErrorList.appendChild(liTag);
 }
 
-// RegExp
-
-var noErrors;
+// FORM VALIDATION
 
 // Name RegExp
 
@@ -24,17 +22,7 @@ var tbName = document.querySelector("#tbName");
 tbName.addEventListener("blur", checkName);
 
 function checkName() {
-    var check = nameRegExp.test(tbName.value);
-    if(check) {
-        tbName.classList.add("borderBlue");
-        tbName.classList.remove("borderRed");
-        tbName.nextElementSibling.style.display = "none";
-    } else {
-        noErrors = false;
-        tbName.classList.add("borderRed");
-        tbName.classList.remove("borderBlue");
-        tbName.nextElementSibling.style.display = "block";
-    }
+    checkRegExp(nameRegExp, tbName);
 }
 
 // Email RegExp
@@ -45,17 +33,7 @@ var tbEmail = document.querySelector("#tbEmail");
 tbEmail.addEventListener("blur", checkEmail);
 
 function checkEmail() {
-    var check = emailRegExp.test(tbEmail.value);
-    if(check) {
-        tbEmail.classList.add("borderBlue");
-        tbEmail.classList.remove("borderRed");
-        tbEmail.nextElementSibling.style.display = "none";
-    } else {
-        noErrors = false;
-        tbEmail.classList.add("borderRed");
-        tbEmail.classList.remove("borderBlue");
-        tbEmail.nextElementSibling.style.display = "block";
-    }
+    checkRegExp(emailRegExp, tbEmail);
 }
 
 // Message RegExp
@@ -65,16 +43,10 @@ tbMessage.addEventListener("blur", checkMessage);
 
 function checkMessage() {
     var numberOfSpaces = tbMessage.value.replace(/[^\s]/mg, "").length;
-    
     if(tbMessage.value.length - numberOfSpaces < 20) {
-        noErrors = false;
-        tbMessage.classList.add("borderRed");
-        tbMessage.classList.remove("borderBlue");
-        tbMessage.nextElementSibling.style.display = "block";
+        fieldIncorrect(tbMessage);
     } else {
-        tbMessage.classList.add("borderBlue");
-        tbMessage.classList.remove("borderRed");
-        tbMessage.nextElementSibling.style.display = "none";
+        fieldCorrect(tbMessage);
     }
 }
 
@@ -82,22 +54,9 @@ function checkMessage() {
 
 var btnSubmitMessage = document.querySelector("#btnSubmitForm");
 
-btnSubmitMessage.addEventListener("click", function() {
-    noErrors = true;
+let checkFunctions = [checkName, checkEmail, checkMessage];
+let textFields = [tbName, tbEmail, tbMessage];
+let ddls = false;
+let successMessage = 'Your message was sent successfully!';
 
-    checkName();
-    checkEmail();
-    checkMessage();
-
-    if(noErrors) {
-        tbName.value = "";
-        tbName.classList.remove("borderBlue");
-        tbEmail.value = "";
-        tbEmail.classList.remove("borderBlue");
-        tbMessage.value = "";
-        tbMessage.classList.remove("borderBlue");
-
-        var successMessage = "Your message was sent successfully!";
-        openSuccessModal(successMessage);
-    }
-});
+btnSubmitMessage.addEventListener("click", submitForm);

@@ -1,5 +1,5 @@
 function printLocations(locationGroup, srcArray, namesArray, textArray, pricesArray) {
-    for(i in namesArray) {
+    for(let i in namesArray) {
         var locationContainer = document.createElement("div");
         locationContainer.setAttribute("id", srcArray[i]);
         locationContainer.setAttribute("class", "locationContainer");
@@ -106,8 +106,6 @@ printLocations(locationGroupTurkey, turkeyLocationSrc, turkeyLocationNames, turk
 
 // Booking form
 
-var noErrors;
-
 // Email RegExp
 
 var emailRegExp = /^[\w-_\.]+@([\w-_]{2,}\.)+[a-z]{2,}$/i;
@@ -116,17 +114,7 @@ var tbEmail = document.querySelector("#tbEmail");
 tbEmail.addEventListener("blur", checkEmail);
 
 function checkEmail() {
-    var check = emailRegExp.test(tbEmail.value);
-    if(check) {
-        tbEmail.classList.add("borderBlue");
-        tbEmail.classList.remove("borderRed");
-        tbEmail.nextElementSibling.style.display = "none";
-    } else {
-        noErrors = false;
-        tbEmail.classList.add("borderRed");
-        tbEmail.classList.remove("borderBlue");
-        tbEmail.nextElementSibling.style.display = "block";
-    }
+    checkRegExp(emailRegExp, tbEmail);
 }
 
 // Number of people
@@ -142,19 +130,15 @@ for(i in ddlNumberOptions) {
 }
 
 function checkNumber() {
-    if(ddlNumber.value != 0) {
-        ddlNumber.classList.add("borderBlue");
-        ddlNumber.classList.remove("borderRed");
-        ddlNumber.nextElementSibling.style.display = "none";
-    } else {
-        noErrors = false;
-        ddlNumber.classList.add("borderRed");
-        ddlNumber.classList.remove("borderBlue");
-        ddlNumber.nextElementSibling.style.display = "block";
-    }
+    checkDdl(ddlNumber);
 }
 
 // Date
+
+function dateErrorMessage(isCorrect) {
+    if(isCorrect) dateError.style.display = "none";
+    else dateError.style.display = "block";
+}
 
 // Year
 
@@ -169,16 +153,8 @@ for(i in ddlYearOptions) {
 }
 
 function checkYear() {
-    if(ddlYear.value != 0) {
-        ddlYear.classList.add("borderBlue");
-        ddlYear.classList.remove("borderRed");
-        dateError.style.display = "none";
-    } else {
-        noErrors = false;
-        ddlYear.classList.add("borderRed");
-        ddlYear.classList.remove("borderBlue");
-        dateError.style.display = "block";
-    }
+    var isCorrect = checkDdl(ddlYear, true);
+    dateErrorMessage(isCorrect);
 }
 
 // Month
@@ -196,16 +172,8 @@ for(i in ddlMonthOptions) {
 }
 
 function checkMonth() {
-    if(ddlMonth.value != 0) {
-        ddlMonth.classList.add("borderBlue");
-        ddlMonth.classList.remove("borderRed");
-        dateError.style.display = "none";
-    } else {
-        noErrors = false;
-        ddlMonth.classList.add("borderRed");
-        ddlMonth.classList.remove("borderBlue");
-        dateError.style.display = "block";
-    }
+    var isCorrect = checkDdl(ddlMonth, true);
+    dateErrorMessage(isCorrect);
 }
 
 // Day
@@ -235,16 +203,8 @@ function printDays() {
 }
 
 function checkDay() {
-    if(ddlDay.value != 0) {
-        ddlDay.classList.add("borderBlue");
-        ddlDay.classList.remove("borderRed");
-        dateError.style.display = "none";
-    } else {
-        noErrors = false;
-        ddlDay.classList.add("borderRed");
-        ddlDay.classList.remove("borderBlue");
-        dateError.style.display = "block";
-    }
+    var isCorrect = checkDdl(ddlDay, true);
+    dateErrorMessage(isCorrect);
 }
 
 function checkDate() {
@@ -261,68 +221,28 @@ ddlDestination.addEventListener("blur", checkDestination);
 
 ddlDestination.innerHTML = '<option value="0">Destination</option>';
 
-for(i in greeceLocationNames) {
-    ddlDestination.innerHTML += `<option value="${greeceLocationNames[i]}">${greeceLocationNames[i]}</option>`;
-}
-for(i in franceLocationNames) {
-    ddlDestination.innerHTML += `<option value="${franceLocationNames[i]}">${franceLocationNames[i]}</option>`;
-}
-for(i in italyLocationNames) {
-    ddlDestination.innerHTML += `<option value="${italyLocationNames[i]}">${italyLocationNames[i]}</option>`;
-}
-for(i in spainLocationNames) {
-    ddlDestination.innerHTML += `<option value="${spainLocationNames[i]}">${spainLocationNames[i]}</option>`;
-}
-for(i in croatiaLocationNames) {
-    ddlDestination.innerHTML += `<option value="${croatiaLocationNames[i]}">${croatiaLocationNames[i]}</option>`;
-}
-for(i in turkeyLocationNames) {
-    ddlDestination.innerHTML += `<option value="${turkeyLocationNames[i]}">${turkeyLocationNames[i]}</option>`;
+var locationNamesArrays = [greeceLocationNames, franceLocationNames, italyLocationNames, spainLocationNames, croatiaLocationNames, turkeyLocationNames];
+
+for(let i in locationNamesArrays) {
+    for(let j in locationNamesArrays[i]) {
+        ddlDestination.innerHTML += `<option value="${locationNamesArrays[i][j]}">${locationNamesArrays[i][j]}</option>`;
+    }
 }
 
 function checkDestination() {
-    if(ddlDestination.value != 0) {
-        ddlDestination.classList.add("borderBlue");
-        ddlDestination.classList.remove("borderRed");
-        ddlDestination.nextElementSibling.style.display = "none";
-    } else {
-        noErrors = false;
-        ddlDestination.classList.add("borderRed");
-        ddlDestination.classList.remove("borderBlue");
-        ddlDestination.nextElementSibling.style.display = "block";
-    }
+    checkDdl(ddlDestination);
 }
 
 // Submit booking
 
 var btnSubmitBooking = document.querySelector("#btnSubmitForm");
 
-btnSubmitBooking.addEventListener("click", function() {
-    noErrors = true;
+var checkFunctions = [checkEmail, checkNumber, checkDate, checkDestination];
+var textFields = [tbEmail];
+let ddls = [ddlNumber, ddlYear, ddlMonth, ddlDay, ddlDestination];
+let successMessage = "Success! One of our agents will reach out to you in the next couple of days to finalize the booking.";
 
-    checkEmail();
-    checkNumber();
-    checkDate();
-    checkDestination();
-
-    if(noErrors) {
-        tbEmail.value = "";
-        tbEmail.classList.remove("borderBlue");
-        ddlNumber.selectedIndex = "0";
-        ddlNumber.classList.remove("borderBlue");
-        ddlYear.selectedIndex = "0";
-        ddlYear.classList.remove("borderBlue");
-        ddlMonth.selectedIndex = "0";
-        ddlMonth.classList.remove("borderBlue");
-        ddlDay.selectedIndex = "0";
-        ddlDay.classList.remove("borderBlue");
-        ddlDestination.selectedIndex = "0";
-        ddlDestination.classList.remove("borderBlue");
-
-        var successMessage = "Success! One of our agents will reach out to you in the next couple of days to finalize the booking.";
-        openSuccessModal(successMessage);
-    }
-});
+btnSubmitBooking.addEventListener("click", submitForm);
 
 // jQuery
 

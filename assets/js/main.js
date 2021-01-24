@@ -92,22 +92,6 @@ function closeSideNav() {
 
 // AUTHOR
 
-var authorModal = document.createElement("div");
-authorModal.setAttribute("id", "authorModal");
-
-var authorCover = document.createElement("div");
-authorCover.setAttribute("class", "cover");
-
-var authorContainer = document.createElement("div");
-authorContainer.setAttribute("id", "authorContainer");
-
-authorContainer.innerHTML += `<h2 class="uppercase font-large">Author</h2><div class="headingUnderline"><span class="blackUnderline"></span><span class="blueUnderline"></span><span class="blackUnderline"></span></div><div id="authorContent"><div id="authorPhoto"><img src="assets/img/bojan.jpg" alt="Author's photo"><h3 class="font-medium">Bojan Maksimović 92/19</h3><span class="font-small">Web Developer</span></div><div id="authorText"><p class="font-small">My name is Bojan and I am an aspiring front-end web developer. My approach to website design is to create a website that strengthens your company’s brand while ensuring ease of use and simplicity for your audience.</p><p id="secondParagraph" class="font-small">The way I look at it, a front-end developer's role is to combine design and business logic to achieve a user-facing product. To do this successfully, a wide skill set is necessary to produce a quality user experience that leads to meeting business goals, and I guarantee I've got exactly what's needed.</p></div></div><a href="https://bokule.github.io/portfolio/" id="portfolioLink" class="uppercase font-small" target="_blank">Portfolio</a><button class="btnClose font-medium" onClick="closeAuthor();">X</button>`;
-
-authorModal.appendChild(authorCover);
-authorModal.appendChild(authorContainer);
-
-bodyTag.appendChild(authorModal);
-
 function openAuthor() {
     authorModal.style.display = "block";
     authorContainer.style.display = "block";

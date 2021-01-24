@@ -8,7 +8,7 @@
         <meta name="description" content="Travel anywhere is an agency with long tradition. Over the years we have built relationships of mutual respect, confidence..."/>
         <link rel="icon" href="assets/img/favicon.ico"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous"/>
-        <link rel="stylesheet" type="text/css" href="assets/css/style.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     </head>
     <body>
         <header id="header">
@@ -67,8 +67,34 @@
             <br/>
             <span id="copyright" class="font-small">&copy; 2020 Bojan Maksimović</span>
         </footer>
+        <!-- AUTHOR -->
+        <div id="authorModal">
+            <div id="authorCover" class="cover"></div>
+            <div id="authorContainer">
+                <h2 class="uppercase font-large">Author</h2>
+                <div class="headingUnderline">
+                    <span class="blackUnderline"></span>
+                    <span class="blueUnderline"></span>
+                    <span class="blackUnderline"></span>
+                </div>
+                <div id="authorContent">
+                    <div id="authorPhoto">
+                        <img src="assets/img/bojan.jpg" alt="Author's photo">
+                        <h3 class="font-medium">Bojan Maksimović 92/19</h3>
+                        <span class="font-small">Web Developer</span>
+                    </div>
+                    <div id="authorText">
+                        <p class="font-small">My name is Bojan and I am an aspiring front-end web developer. My approach to website design is to create a website that strengthens your company’s brand while ensuring ease of use and simplicity for your audience.</p>
+                        <p id="secondParagraph" class="font-small">The way I look at it, a front-end developer's role is to combine design and business logic to achieve a user-facing product. To do this successfully, a wide skill set is necessary to produce a quality user experience that leads to meeting business goals, and I guarantee I've got exactly what's needed.</p>
+                    </div>
+                </div>
+                <a href="https://bokule.github.io/portfolio/" id="portfolioLink" class="uppercase font-small" target="_blank">Portfolio</a>
+                <button class="btnClose font-medium" onClick="closeAuthor();">X</button>
+            </div>
+        </div>
+        <!-- SCRPITS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/js/main.min.js"></script>
-        <script type="text/javascript" src="assets/js/home.min.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+        <script type="text/javascript" src="assets/js/home.js"></script>
     </body>
 </html>
